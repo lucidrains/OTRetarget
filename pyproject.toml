@@ -1,0 +1,70 @@
+[project]
+name = "OTRetarget-pytorch"
+version = "0.0.1"
+description = "Implementation of OTRetarget, Joint Robot and Object Motion Retargeting via Optimal Transport"
+authors = [
+    { name = "Phil Wang", email = "lucidrains@gmail.com" }
+]
+readme = "README.md"
+requires-python = ">= 3.10"
+license = { file = "LICENSE" }
+keywords = [
+    'artificial intelligence',
+    'deep learning',
+    'robotics',
+    'optimal transport',
+    'motion retargeting',
+    'humanoid'
+]
+
+classifiers=[
+    'Development Status :: 4 - Beta',
+    'Intended Audience :: Developers',
+    'Topic :: Scientific/Engineering :: Artificial Intelligence',
+    'License :: OSI Approved :: MIT License',
+    'Programming Language :: Python :: 3.10',
+]
+
+dependencies = [
+    "einx>=0.3.0",
+    "einops>=0.8.1",
+    "torch>=2.5",
+    "torch-einops-utils>=0.0.29"
+]
+
+[project.urls]
+Homepage = "https://pypi.org/project/OTRetarget-pytorch/"
+Repository = "https://github.com/lucidrains/OTRetarget"
+
+[project.optional-dependencies]
+examples = []
+test = [
+    "pytest"
+]
+
+[tool.pytest.ini_options]
+pythonpath = [
+    "."
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build]
+include = [
+    "ot_retarget",
+    "pyproject.toml",
+    "README.md",
+    "LICENSE"
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["ot_retarget"]
